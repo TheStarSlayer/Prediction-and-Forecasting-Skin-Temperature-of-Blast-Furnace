@@ -173,3 +173,9 @@ body {
     border-width: medium;
     color: red;
 }
+
+.graph {
+	margin-left: 25%;
+	margin-top: 250px;
+	width: 50%;
+}

@@ -1,14 +1,16 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel='stylesheet' href="{{url_for('static', filename='style.css')}}">
         <title>Predict Skin Temp</title>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>
     
     <body>
         
         <div class='banner'>
             <div class='logo'>
-                <img src = "{{url_for('static', filename='logo.png')}}" />
+                <img src="{{url_for('static', filename='logo.png')}}" alt="Logo" />
             </div>
             
             <div class='banner-text'>
@@ -39,15 +41,47 @@
                  <li><a href="predictor.html">Predictor</a></li>
             </ul> 
         </div>
-        
+
         <div class='cred-body'>
-            <p><center><strong>Real-time Average Skin Temperature:</strong> {{skin_temp_curr}}</center></p>
-            <p><center><strong>Average Skin Temperature after 1 hour:</strong> {{skin_temp_1}}</center></p>
-            <p><center><strong>Average Skin Temperature after 2 hour:</strong> {{skin_temp_2}}</center></p>
-            <p><center><strong>Average Skin Temperature after 3 hour:</strong> {{skin_temp_3}}</center></p>
-            <p><center><strong>Average Skin Temperature after 4 hour:</strong> {{skin_temp_4}}</center></p>
+            <p><center><strong>Real-time Average Skin Temperature:</strong> <span id='st0'></span></center></p>
+            <p><center><strong>Average Skin Temperature after 1 hour:</strong> <span id='st1'></span></center></p>
+            <p><center><strong>Average Skin Temperature after 2 hours:</strong> <span id='st2'></span></center></p>
+            <p><center><strong>Average Skin Temperature after 3 hours:</strong> <span id='st3'></span></center></p>
+            <p><center><strong>Average Skin Temperature after 4 hours:</strong> <span id='st4'></span></center></p>
         </div>
+
+        <div class="graph" id="result-plot"></div>
+
+        <script>
+            let skin_temp_0 = '{{skin_temp_curr}}';
+            let skin_temp_1 = '{{skin_temp_1}}';
+            let skin_temp_2 = '{{skin_temp_2}}';
+            let skin_temp_3 = '{{skin_temp_3}}';
+            let skin_temp_4 = '{{skin_temp_4}}';
+
+            document.getElementById('st0').innerHTML = skin_temp_0;
+            document.getElementById('st1').innerHTML = skin_temp_1;
+            document.getElementById('st2').innerHTML = skin_temp_2;
+            document.getElementById('st3').innerHTML = skin_temp_3;
+            document.getElementById('st4').innerHTML = skin_temp_4;
+
+            const xArray = ["Real-time", "1 hr", "2 hr", "3 hr", "4 hr"];
+            const yArray = [skin_temp_0, skin_temp_1, skin_temp_2, skin_temp_3, skin_temp_4];
+
+            const data = [{
+                x: xArray,
+                y: yArray,
+                mode: 'lines'
+            }];
+
+            const layout = {
+                xaxis: {title: "Time"},
+                yaxis: {range: [Math.min(...yArray), Math.max(...yArray)], title: "Temperatures"},
+                title: "Variance of Skin Temperature over time"
+            };
+
+            Plotly.newPlot("result-plot", data, layout);
+        </script>
         
     </body>
-    
 </html>
