@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <link rel='stylesheet' href="{{url_for('static', filename='style.css')}}">
+        <title>Predict Skin Temp</title>
+    </head>
+    
+    <body>
+        
+        <div class='banner'>
+            <div class='logo'>
+                <img src = "{{url_for('static', filename='logo.png')}}" />
+            </div>
+            
+            <div class='banner-text'>
+                <div class='text'>
+                    <br />
+                    <span>VISAKHAPATNAM STEEL PLANT</span><br />
+                    <span>Real-time prediction and forecast of Average Skin Temperature of Blast Furnace</span>
+                </div>
+
+                <div class='time'>
+                    <br/>
+                    <span>Login time: </span>
+                    <span id="datetime"></span>
+                    <script>
+                      var now = new Date();
+                      var datetime = now.toLocaleString();
+
+                      document.getElementById("datetime").innerHTML = datetime;
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class='navbar'>
+             <ul>
+                 <li><a class='active' href="#about">About</a></li>
+                 <li><a href="credits.html">Source Code</a></li>
+                 <li><a href="{{url_for('static', filename='documentation.docx')}}" download>Documentation</a></li>
+                 <li><a href="predictor.html">Predictor</a></li>
+            </ul> 
+        </div>
+        
+        <div class='ab-body'>
+            <h2>Visakhapatnam Steel Plant</h2><hr />
+            <p>
+Visakhapatnam Steel Plant is the integrated steel plants of Rashtriya Ispat Nigam Limited in Visakhapatnam. Founded in 1982, the plant focuses on producing value-added steel, producing 5.773 million tonnes of hot metal, 5.272 million tonnes of crude steel and 5.138 million tonnes of saleable steel in the 2021-2022 financial year.            
+            </p>
+            <br />
+            <img src="{{ url_for('static', filename = 'Visakha_steel_plant_pylon.jpg') }}" />
+            <br />
+            <span style="text-align: center;display: block;">View of Pylon and Entrance to Steel Plant Industry</span>
+            <br />
+            <h2>Blast Furnaces</h2><hr />
+            <p>
+Iron is produced in the Blast Furnace by smelting iron bearing materials with the help of coke and air. The solid charge materials like sinter, sized iron ore, coke etc. are charged in the vertical shaft of the Blast Furnace from top and hot air blast is blown through tuyeres located at the bottom. The oxygen present in hot air combines with the carbon of coke and generates heat and carbon monoxide (reducing agent). The reducing gases, while ascending upwards comes into contact with the descending charge materials. Eventually the charge gets reduced and hot metal, slag and BF gas are produced. Hot metal and slag is tapped from tap hole. The Blast Furnace gas which comes out from top of the furnace is cleaned and used as fuel in the plant. 
+            </p>
+            <p>
+There are 3 blast furnaces available in RINL Steel Plant. BF-1 and BF-2 have useful volume of 3200 cum. each. BF-3 has an useful volume of 3800 cum. 
+            </p>
+            
+            <h3>Salient Features of BF-1 and BF-2:</h3>
+            <ul>
+                <li>New generation Paul-Wurth "Bell-Less" Top with conveyor charging</li>
+                <li>BF Cooling elements (Cast Iron Staves & Copper Staves)</li>
+                <li>High heat zone copper staves</li>
+                <li>Double compensator tuyeres, with PCI injection facility and extended tuyere platform</li>
+                <li>New scrubber with annular gap element for better gas cleaning</li>
+                <li>HMI based control room</li>
+                <li>Automation with PLC in BF-1 and PCS in BF-2</li>   
+            </ul>
+            
+            <br />
+            <img src="{{ url_for('static', filename='sr6j.jpg') }}">
+            <br />
+            <span style="text-align: center;display: block;">Blast Furnace named 'Krishna'</span>
+            <br />
+            
+            <h3>Salient Features of BF-3:</h3>
+            <ul>
+                <li>New Generation Parallel Hopper Bell Less Top </li>
+                <li> BF Cooling elements (Cast Iron Staves & Copper Staves) </li>
+                <li>Flat Cast house Equipment (by TMT)</li>
+                <li>INBA Slag Granulation system</li>
+                <li> Pulverized Coal Injection system </li>
+                <li> Annular Gap Scrubber </li>
+                <li>Automation with DCS</li>   
+            </ul>
+            <br />
+        </div>
+        
+    </body>
+    
+</html>

@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.banner {
+    position: fixed;
+    width: 100vw;
+    height: 20vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    background-image: url(steel.jpg);
+    background-size: 100% 100%;
+    z-index: 1000;
+}
+
+.logo, .logo img {
+    width: 8vw;
+    height: 20vh;
+}
+
+.banner-text {
+    left: 8vw;
+    right: 0;
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: white;
+    font-family: 'Garamond', sans-serif;
+}
+
+.text {
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+    color: white;
+}
+
+.time {
+    text-align: end;
+    font-style: italic;
+    width: 100%;
+    height: 16vh;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar {
+    top: 20vh;
+    width: 100vw;
+    left: 0;
+    position: fixed;
+    z-index: 999;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar li {
+    float: left;
+    border-right: thin solid gray;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: maroon;
+}
+
+.active {
+    background-color: red;
+}
+
+.ab-body, .cred-body{
+    top: 30vh;
+    margin-left: 20px;
+    position: relative;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.ab-body img {
+    height: 50%;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pred-body {
+    width: 100vw;
+    top: 30vh;
+    position: relative;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.feature-inp {
+    padding: 40px 40px 40px 40px;
+}
+
+.feature-inp input[type=number] {
+    padding: 5px 5px 5px 5px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: grey;
+}
+
+.feature-inp input[type=number]:focus {
+    border: 3px solid darkgreen;
+    outline: none;
+}
+
+.cred-body img {
+    width:28px;
+    height:28px;
+}
+
+.pred-body input[type=submit] {
+    background-color: green;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.pred-body input[type=submit]:hover {
+    background-color: white;
+    border-color: green;
+    border-width: medium;
+    color: green;
+}
+
+.pred-body input[type=submit]:disabled{
+    background-color: grey;
+    color: white;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pred-body input[type=submit]:hover:disabled {
+    background-color: white;
+    border-color: red;
+    border-width: medium;
+    color: red;
+}

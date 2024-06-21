@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <link rel='stylesheet' href="{{url_for('static', filename='style.css')}}">
+        <title>Predict Skin Temp</title>
+    </head>
+    
+    <body>
+        
+        <div class='banner'>
+            <div class='logo'>
+                <img src = "{{url_for('static', filename='logo.png')}}" />
+            </div>
+            
+            <div class='banner-text'>
+                <div class='text'>
+                    <br />
+                    <span>VISAKHAPATNAM STEEL PLANT</span><br />
+                    <span>Real-time prediction and forecast of Average Skin Temperature of Blast Furnace</span>
+                </div>
+
+                <div class='time'>
+                    <br/>
+                    <span>Login time: </span>
+                    <span id="datetime"></span>
+                    <script>
+                      var now = new Date();
+                      var datetime = now.toLocaleString();
+
+                      document.getElementById("datetime").innerHTML = datetime;
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class='navbar'>
+             <ul>
+                 <li><a href="about.html">About</a></li>
+                 <li><a href="credits.html">Source Code</a></li>
+                 <li><a href="{{url_for('static', filename='documentation.docx')}}" download>Documentation</a></li>
+                 <li><a href="predictor.html">Predictor</a></li>
+            </ul> 
+        </div>
+        
+        <div class='cred-body'>
+            <p><center><strong>Real-time Average Skin Temperature:</strong> {{skin_temp_curr}}</center></p>
+            <p><center><strong>Average Skin Temperature after 1 hour:</strong> {{skin_temp_1}}</center></p>
+            <p><center><strong>Average Skin Temperature after 2 hour:</strong> {{skin_temp_2}}</center></p>
+            <p><center><strong>Average Skin Temperature after 3 hour:</strong> {{skin_temp_3}}</center></p>
+            <p><center><strong>Average Skin Temperature after 4 hour:</strong> {{skin_temp_4}}</center></p>
+        </div>
+        
+    </body>
+    
+</html>

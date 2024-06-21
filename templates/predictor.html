@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <link rel='stylesheet' href="{{url_for('static', filename='style.css')}}">
+        <title>Predict Skin Temp</title>
+    </head>
+    <script>
+        function enableSubmit() {
+            let inputs = document.getElementsByClassName('required'); 
+            let btn = document.querySelector("input[type='submit']");
+            let isValid = true;
+            for (var i = 0; i < inputs.length; i++){
+                let changedInput = inputs[i];
+                if (changedInput.value.trim() === "" || changedInput.value === null){
+                    isValid = false;
+                    break;
+                }
+            }
+            btn.disabled = !isValid;
+        }
+    </script>
+    <body>
+        
+        <div class='banner'>
+            <div class='logo'>
+                <img src = "{{url_for('static', filename='logo.png')}}" />
+            </div>
+            
+            <div class='banner-text'>
+                <div class='text'>
+                    <br />
+                    <span>VISAKHAPATNAM STEEL PLANT</span><br />
+                    <span>Real-time prediction and forecast of Average Skin Temperature of Blast Furnace</span>
+                </div>
+
+                <div class='time'>
+                    <br/>
+                    <span>Login time: </span>
+                    <span id="datetime"></span>
+                    <span>&nbsp;&nbsp;</span>
+                    <script>
+                      var now = new Date();
+                      var datetime = now.toLocaleString();
+
+                      document.getElementById("datetime").innerHTML = datetime;
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class='navbar'>
+             <ul>
+                 <li><a href="about.html">About</a></li>
+                 <li><a href="credits.html">Source Code</a></li>
+                 <li><a href="{{url_for('static', filename='documentation.docx')}}" download>Documentation</a></li>
+                 <li class><a class='active' href="#predictor">Predictor</a></li>
+            </ul> 
+        </div>
+        
+        <div class='pred-body'>
+            <h2>&nbsp;&nbsp;Enter the details in respective fields:</h2>
+            <form action='/predict' method="post">
+                <div class='flex-container'>
+                    <div class='feature-inp'>
+                        <label for='CB_FLOW'>Cold Blast Flow:</label><br /><br />
+                        <input type='number' id='CB_FLOW' name='CB_FLOW' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='CB_PRESS'>Cold Blast Pressure:</label><br /><br />
+                        <input type='number' id='CB_PRESS' name='CB_PRESS' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='CB_TEMP'>Cold Blast Temperature:</label><br /><br />
+                        <input type='number' id='CB_TEMP' name='CB_TEMP' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='STEAM_FLOW'>Steam Flow:</label><br /><br />
+                        <input type='number' id='STEAM_FLOW' name='STEAM_FLOW' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='STEAM_TEMP'>Steam Temperature:</label><br /><br />
+                        <input type='number' id='STEAM_TEMP' name='STEAM_TEMP' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='STEAM_PRESS'>Steam Pressure:</label><br /><br />
+                        <input type='number' id='STEAM_PRESS' name='STEAM_PRESS' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='O2_PRESS'>Oxygen Pressure:</label><br /><br />
+                        <input type='number' id='O2_PRESS' name='O2_PRESS' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='O2_FLOW'>Oxygen Flow:</label><br /><br />
+                        <input type='number' id='O2_FLOW' name='O2_FLOW' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='O2_PER'>Oxygen Percentage:</label><br /><br />
+                        <input type='number' id='O2_PER' name='O2_PER' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='PCI'>Pulverized Coal Injection:</label><br /><br />
+                        <input type='number' id='PCI' name='PCI' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='ATM_HUMID'>Atmospheric Humidity:</label><br /><br />
+                        <input type='number' id='ATM_HUMID' name='ATM_HUMID' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='HB_TEMP'>Hot Blast Temperature:</label><br /><br />
+                        <input type='number' id='HB_TEMP' name='HB_TEMP' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='HB_PRESS'>Hot Blast Pressure:</label><br /><br />
+                        <input type='number' id='HB_PRESS' name='HB_PRESS' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='TOP_PRESS'>Top Gas Pressure:</label><br /><br />
+                        <input type='number' id='TOP_PRESS' name='TOP_PRESS' class='required' step=0.00001>
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='TOP_SPRAY'>Top Gas Spray:</label><br /><br />
+                        <input type='number' id='TOP_SPRAY' name='TOP_SPRAY' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='TOP_TEMP'>Top Gas Temperature:</label><br /><br />
+                        <input type='number' id='TOP_TEMP' name='TOP_TEMP' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='CO'>CO level:</label><br /><br />
+                        <input type='number' id='CO' name='CO' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='CO2'>CO2 level:</label><br /><br />
+                        <input type='number' id='CO2' name='CO2' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+                    <div class='feature-inp'>
+                        <label for='H2'>H2 level:</label><br /><br />
+                        <input type='number' id='H2' name='H2' class='required' step=0.00001 onkeyup="enableSubmit()">
+                    </div>
+
+                </div>
+                <center><input type='submit' id='btn' value='Predict' disabled></center>
+            </form>
+        </div>      
+    </body>
+    
+</html>

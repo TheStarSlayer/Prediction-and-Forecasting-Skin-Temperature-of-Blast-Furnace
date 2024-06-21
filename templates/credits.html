@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <link rel='stylesheet' href="{{url_for('static', filename='style.css')}}">
+        <title>Predict Skin Temp</title>
+    </head>
+    
+    <body>
+        
+        <div class='banner'>
+            <div class='logo'>
+                <img src = "{{url_for('static', filename='logo.png')}}" />
+            </div>
+            
+            <div class='banner-text'>
+                <div class='text'>
+                    <br />
+                    <span>VISAKHAPATNAM STEEL PLANT</span><br />
+                    <span>Real-time prediction and forecast of Average Skin Temperature of Blast Furnace</span>
+                </div>
+
+                <div class='time'>
+                    <br/>
+                    <span>Login time: </span>
+                    <span id="datetime"></span>
+                    <script>
+                      var now = new Date();
+                      var datetime = now.toLocaleString();
+
+                      document.getElementById("datetime").innerHTML = datetime;
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class='navbar'>
+             <ul>
+                 <li><a href="about.html">About</a></li>
+                 <li><a class='active' href="#credits">Source Code</a></li>
+                 <li><a href="{{url_for('static', filename='documentation.docx')}}" download>Documentation</a></li>
+                 <li><a href="predictor.html">Predictor</a></li>
+            </ul> 
+        </div>
+        
+        <div class='cred-body'>
+            <p>
+The project titled as 'Real-time prediction and forecast of Average Skin Temperature of Blast Furnace', is done by the following trainees:
+            </p>
+            <ul style='font-weight: bold; font-style:italic;'>
+                <br />
+                <li>M. Lalith Sri Sai</li>
+                <br />
+                <li>V. Koushik</li>
+                <br />
+                <li>M. Sampath Akash</li>
+                <br />
+                <li>M. Chandra Sekhara Reddy</li>
+            </ul>
+            <br />
+            <p>
+This project is part of the industrial training undergone in RINL Visakhapatnam Steel Plant. We would like to thank <b>Mr. Kameshwara Rao</b> for guiding us in this project.
+            </p>
+            
+            <p>
+The source code for the model and the website is provided in this link:
+            </p>
+            
+            <p style='display: inline-block;'>
+                &nbsp;&nbsp;
+                <img src = "{{url_for('static', filename='github-mark.svg')}}" />
+                &nbsp;&nbsp;
+                <a href='#github-link'>
+Real-time prediction and forecast of Average Skin Temperature of Blast Furnace
+                </a>
+            </p>
+            
+            
+        
+        </div>
+        
+    </body>
+    
+</html>
